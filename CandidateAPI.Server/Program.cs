@@ -11,6 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.AddSqlServerDbContext<ApplicationDbContext>("CandidateDatabase");
 
+builder.AddRedisDistributedCache("redis");
+
 builder.AddServiceDefaults();
 
 // Add services to the container.
