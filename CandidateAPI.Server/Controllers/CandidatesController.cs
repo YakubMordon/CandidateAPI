@@ -1,9 +1,6 @@
 using CandidateAPI.Application.Interfaces.Services;
-using CandidateAPI.Domain.Entities;
 using CandidateAPI.Domain.Models;
-using CandidateAPI.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace CandidateAPI.Server.Controllers;
 
@@ -16,7 +13,7 @@ public class CandidatesController(ICandidateService candidateService) : Controll
     {
         if (!ModelState.IsValid)
         {
-            return BadRequest(ModelState); 
+            return BadRequest(ModelState);
         }
 
         try

@@ -29,7 +29,7 @@ public class CandidateRepositoryTests : IDisposable, IAsyncDisposable
     public async Task AddAsync_DataIsCorrect_ShouldAddCandidate()
     {
         // Arrange
-        var entity = _candidateFaker.Generate();
+        var entity = _candidateFaker.UseSeed(1).Generate();
 
         // Act
         await _candidateRepository.AddAsync(entity);
@@ -65,7 +65,7 @@ public class CandidateRepositoryTests : IDisposable, IAsyncDisposable
     public async Task DeleteAsync_CandidateExists_ShouldDeleteCandidate()
     {
         // Arrange
-        var entity = _candidateFaker.Generate();
+        var entity = _candidateFaker.UseSeed(2).Generate();
         await _candidateRepository.AddAsync(entity);
 
         // Act
@@ -79,7 +79,7 @@ public class CandidateRepositoryTests : IDisposable, IAsyncDisposable
     public async Task DeleteAsync_CandidateNotExists_ShouldNotDeleteCandidate()
     {
         // Arrange
-        var entity = _candidateFaker.Generate();
+        var entity = _candidateFaker.UseSeed(3).Generate();
 
         // Act
         var removal = async () => await _candidateRepository.DeleteAsync(entity);
@@ -93,7 +93,7 @@ public class CandidateRepositoryTests : IDisposable, IAsyncDisposable
     public async Task UpdateAsync_DataIsCorrect_ShouldUpdateCandidate()
     {
         // Arrange
-        var entity = _candidateFaker.Generate();
+        var entity = _candidateFaker.UseSeed(4).Generate();
         await _candidateRepository.AddAsync(entity);  // Додаємо сутність в базу даних
 
         // Оновлюємо властивість
@@ -117,7 +117,7 @@ public class CandidateRepositoryTests : IDisposable, IAsyncDisposable
     public async Task GetAllAsync_ShouldGetAllCandidates()
     {
         // Arrange
-        var list = _candidateFaker.Generate(10);
+        var list = _candidateFaker.UseSeed(5).Generate(10);
         _context.Candidates.AddRange(list);
         await _context.SaveChangesAsync();
 
@@ -136,7 +136,7 @@ public class CandidateRepositoryTests : IDisposable, IAsyncDisposable
     public async Task GetByEmailAsync_CandidateExists_ShouldReturnCandidate()
     {
         // Arrange
-        var entity = _candidateFaker.Generate();
+        var entity = _candidateFaker.UseSeed(6).Generate();
         await _candidateRepository.AddAsync(entity);
 
         // Act

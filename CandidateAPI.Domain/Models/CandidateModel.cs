@@ -7,15 +7,15 @@ public class CandidateModel : BaseModel
     [Required]
     [EmailAddress]
     [MaxLength(150)]
-    public required string Email { get; set; }
+    public string Email { get; set; }
 
     [Required]
     [MaxLength(100)]
-    public required string FirstName { get; set; }
+    public string FirstName { get; set; }
 
     [Required]
     [MaxLength(100)]
-    public required string LastName { get; set; }
+    public string LastName { get; set; }
 
     [MaxLength(20)]
     public string PhoneNumber { get; set; }
@@ -33,5 +33,5 @@ public class CandidateModel : BaseModel
 
     [Required]
     [MaxLength(1000)]
-    public required string FreeTextComment { get; set; }
+    public string FreeTextComment { get; set; }
 }

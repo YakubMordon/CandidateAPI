@@ -12,7 +12,7 @@ public class CandidateServiceTests
 {
     private readonly Mock<ICandidateRepository> _mockCandidateRepository;
     private readonly Mock<ICandidateMapper> _mockCandidateMapper;
-    private readonly ICandidateService _candidateService;
+    private readonly CandidateService _candidateService;
 
     public CandidateServiceTests()
     {
